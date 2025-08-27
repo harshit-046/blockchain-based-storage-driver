@@ -44,7 +44,7 @@ Before starting, make sure you have:
 ### 1. **Activate your virtual environment**
 
 ```bash
-source venv/bin/activate
+source .venv/bin/activate
 ```
 
 ---
