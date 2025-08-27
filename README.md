@@ -64,7 +64,7 @@ Keep this terminal open and running.
 ### 3. **Ensure mountpoint directory exists**
 
 ```bash
-mkdir -p ~/blockchain-mount
+mkdir -p ~/mountpoint
 ```
 
 ---
@@ -74,7 +74,7 @@ mkdir -p ~/blockchain-mount
 In your main terminal (with `venv` activated):
 
 ```bash
-python myfuse/main.py ~/blockchain-mount
+python myfuse/main.py ~/mountpoint
 ```
 
 You’ll see:
@@ -95,8 +95,8 @@ Open **another terminal** (leave the mount one running), then:
 ### ✅ 5. **Write and read files**
 
 ```bash
-echo "Hello again!" > ~/blockchain-mount/test.txt
-cat ~/blockchain-mount/test.txt
+echo "Hello again!" > ~/mountpoint/test.txt
+cat ~/mountpoint/test.txt
 ```
 
 ---
@@ -122,19 +122,19 @@ python myfuse/integrity_checker.py verify-file --file test.txt
 Create a 1MB binary file:
 
 ```bash
-dd if=/dev/zero of=~/blockchain-mount/large.bin bs=1024 count=1000
+dd if=/dev/zero of=~/mountpoint/large.bin bs=1024 count=1000
 ```
 
 Create multiple test files:
 
 ```bash
-for i in {1..5}; do echo "File $i" > ~/blockchain-mount/file_$i.txt; done
+for i in {1..5}; do echo "File $i" > ~/mountpoint/file_$i.txt; done
 ```
 
 Benchmark:
 
 ```bash
-time cat ~/blockchain-mount/large.bin > /dev/null
+time cat ~/mountpoint/large.bin > /dev/null
 ```
 
 ---
@@ -148,7 +148,7 @@ Press `Ctrl+C` in the terminal running `main.py`.
 Or manually:
 
 ```bash
-fusermount -u ~/blockchain-mount
+fusermount -u ~/mountpoint
 ```
 
 ### 🔻 Stop IPFS daemon:
@@ -165,6 +165,6 @@ deactivate
 
 ## 📖 Notes
 
-- You can change the mountpoint directory name (`~/blockchain-mount`) as needed.
+- You can change the mountpoint directory name (`~/mountpoint`) as needed.
 - Make sure the **IPFS daemon** is always running in the background before mounting.
 - Logs and blockchain data are stored in your project directory for debugging.
