@@ -1,0 +1,3 @@
+"""
+Blockchain FUSE filesystem package.
+"""
